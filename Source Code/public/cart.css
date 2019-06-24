@@ -1,0 +1,115 @@
+.purchase{
+    margin-top: 20050px;
+    margin-left: 565px;
+    font-size: 35px;
+    color: #33691e;
+}
+.shop-more{
+    margin-left: 565px;
+    font-size: 35px;
+    color: #f57f17;
+}
+.empty-cart{
+    margin-top: 150px;
+    font-weight: bolder;
+    color: #b71c1c;
+    font-size: 40px;
+}
+hr { 
+  display: block;
+  margin-left: 30px;
+  margin-right: 30px;
+  border-style: inset;
+  border-width: 2.5px;
+} 
+
+.section-header {
+	margin-top: 120px;
+    font-family: "Courier";
+    font-weight: bold;
+    color: #1a237e;
+    text-align: center;
+    font-size: 2.5em;
+}
+.cart-item {
+    width: 35%;
+    margin-left: 30px;
+    
+}
+
+.cart-item-1 {
+    width: 35%;
+    margin-left: 30px;
+}
+
+.cart-header {
+   font-family: "Courier";
+   font-weight: normal;
+   font-size: 1.25em;
+   color:#004d40;
+}
+
+.cart-column {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    margin-right: 1.5em;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cart-price {
+    width: 30%;
+   
+}
+
+.cart-price-1 {
+    width: 30%;
+   color: #333;
+}
+
+.cart-quantity {
+    width: 35%;
+}
+
+.cart-quantity-1 {
+    width: 35%;
+}
+
+.cart-row {
+    display: flex;
+    margin-top: 70px
+}
+
+.cart-row-1{
+    display: flex;
+    margin-top: 20px
+}
+
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 60px;
+}
+
+.cart-total-title {
+    font-weight: bold;
+    font-size: 1.25em;
+    color: black;
+    margin-right: 20px;
+    font-family: "Courier";
+}
+
+.cart-total-price {
+    color: #333;
+    font-size: 1.1em;
+    font-family: "Courier";
+}
+#background{
+    background: url(img/back.jpg) no-repeat;
+    background-size: 100%;
+    background-size: cover;
+    color:black;
+    height:90.8%;
+    font-size: 25px;
+}

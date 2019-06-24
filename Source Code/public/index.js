@@ -1,0 +1,11 @@
+window.sr=ScrollReveal();
+            sr.reveal('.navbar',{duration:3000,origin:'bottom'})
+            sr.reveal('.cover-text',{duration:2500,origin:'bottom',distance:'1000px',delay:500})
+            sr.reveal('#home',{duration:2500,origin:'top',distance:'800px'})
+            sr.reveal('#reviews',{duration:2000,origin:'left',distance:'800px',viewFactor:0.2})
+            sr.reveal('#assurance',{duration:3000,origin:'top',distance:'200px',viewFactor:0.4})
+            sr.reveal('#quality',{duration:3000,origin:'bottom',distance:'200px',viewFactor:0.4})
+            sr.reveal('#home',{duration:3000,origin:'top',distance:'200px',viewFactor:0.4})
+            sr.reveal('#amol',{duration:3000,origin:'left',distance:'200px',viewFactor:0.2})
+            sr.reveal('#pritam',{duration:3000,origin:'right',distance:'200px',viewFactor:0.2})
+            sr.reveal('#signUp',{duration:3000,origin:'bottom',distance:'200px',viewFactor:0.2})

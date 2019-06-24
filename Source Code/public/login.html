@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+        <title>Shah's</title>
+         <link rel="stylesheet" href="start.css">
+        <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+        <script src="firebasedetails.js"></script>
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+        <script type="text/javascript">
+            var database = firebase.database();
+            var uiConfig = {
+                callbacks: {
+                    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+                        var user = authResult.user;
+                        var credential = authResult.credential;
+                        var providerId = authResult.additionalUserInfo.providerId;
+                        var operationType = authResult.operationType;
+                        firebase.database().ref('users/' + firebase.auth().currentUser.uid).set({
+                            username: firebase.auth().currentUser.displayName,
+                            email: firebase.auth().currentUser.email,
+                            profile_picture : firebase.auth().currentUser.photoURL
+                        }, function(error) {
+                            if (error) {
+                                alert("The write failed...");
+                            } else {
+                                alert("Data saved successfully!");
+                            }
+                        });
+                        return true;
+                    },
+                    signInFailure: function(error) {
+                        return handleUIError(error);
+                    },
+                    uiShown: function() {
+                        document.getElementById('loader').style.display = 'none';
+                    }
+                },
+                credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
+                queryParameterForWidgetMode: 'mode',
+                queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
+                signInFlow: 'popup',
+                signInSuccessUrl: 'dashboard.html',
+                signInOptions: [
+                    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                    {
+                        provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                        requireDisplayName: true
+                    },
+                    {
+                        provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+                        recaptchaParameters: {
+                            type: 'image',
+                            size: 'invisible',
+                            badge: 'bottomleft'
+                        }
+                    },
+                    firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+                ]
+            };
+            var ui = new firebaseui.auth.AuthUI(firebase.auth());
+            ui.start('#firebaseui-auth-container', uiConfig);
+        </script>
+        
+    </head>
+    <body>
+       <section id="team2">    
+            <h2 id="Login" >Login</h2><br>
+                    <div id="about" class="container">
+                     <div id="firebaseui-auth-container"></div>
+        <div id="loader">Loading...</div>  
+                    
+     
+        
+  </div> 
+ </section>
+         <footer>
+            Crafted with &hearts; in Baramati by <a href="#team">Our Team</a>
+        </footer>
+    </body>
+</html>

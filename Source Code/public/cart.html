@@ -1,0 +1,121 @@
+<script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+<script src="firebasedetails.js"></script>
+<script type="text/javascript">
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (!user) {
+            // User is not signed in.
+            location.href = "login.html";
+        }
+    });
+</script>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="cart.css">
+        <script src="cart.js"></script>
+        <title>My Cart</title>
+    </head>
+    <body id="background">
+        <nav class="navbar navbar-expand-md navbar-inverse bg-dark navbar-dark fixed-top">
+            <a class="navbar-brand" href="dashboard.html">Shah's</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active px-3">
+                        <a class="nav-link" href="dashboard.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active px-3">
+                        <a class="nav-link" href="About.html">About <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active px-3">
+                        <a class="nav-link" href="#">My Cart</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" input type="text" value=""  type="search"  id="myinput" onkeyup="searchFunction()" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success  buy my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        <h2 class="section-header">MY CART</h2>
+        <div id="empty">
+            <h3 class="empty-cart"style="text-align:center">Cart Is Empty</h3>
+        </div>
+        <div style="display:none" id="table_items">
+            <div class="cart-row">
+            
+            
+                <span class="cart-item cart-header cart-column"><strong>ITEM</strong></span>
+                
+                <span class="cart-price cart-header cart-column"><strong>PRICE</strong></span>
+                
+                <span class="cart-quantity cart-header cart-column"><strong>QUANTITY</strong></span><br/><br/><br/><br/><br/><br/>
+                </div>
+                <div id="items">
+                    <!-- <div class="cart-row-1">
+                <span class=" cart-item-1">ITEM 1</span>
+                <span class=" cart-price-1">45</span>
+                <span class="cart-quantity-1">3</span> -->
+        </div>
+    </div>
+    </div>
+            <div class="cart-items">
+            </div>
+            <hr style="display:none" id="HR">
+            <div style="display:none" class="cart-total" id="total">
+                <p id="subtotal">
+                    <span class="cart-total-price">Subtotal</span>
+                    <span class="cart-total-price">&nbsp;&nbsp;&nbsp;Rs 0</span>
+                </p>
+                <p>
+                    <span class="cart-total-price">Delivery Charges</span>
+                    <span class="cart-total-price">&nbsp;&nbsp;&nbsp;Rs 0</span>
+                </p>
+                <p id="total">
+                    <strong class="cart-total-title">Total</strong>
+                    <span class="cart-total-price">Rs 0</span>
+                </p>
+            </div>
+
+
+
+        <button type="button" class="btn btn-outline-success  buy my-2 my-sm-0 purchase" data-toggle="modal" data-target="#purchase" id="pur" style="display:none" onclick="remove()"><strong>Purchase</strong></button><br/>
+        <button href="dashboard.html" type="button" class="btn btn-outline-warning  buy my-2 my-sm-0 shop-more" data-toggle="modal"><strong>Shop More</strong></button>
+          <!-- Modal -->
+          <div class="modal fade" id="purchase" tabindex="-1" role="dialog" aria-labelledby="purchase" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="purchase">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  Order Placed. Thank You For Shopping!
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reload()">Close</button>
+                  <a href="dashboard.html">
+                  <button type="button" class="btn btn-primary">Continue Shopping</button>
+                </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+        <script src="firebasedetails.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script src="bootstrap/js/scrollreveal.min.js"></script>
+        <script src="cart.js">
+        </script>
+    </body>
+</html>
